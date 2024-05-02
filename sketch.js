@@ -16,7 +16,28 @@ let generateGrid = function (dimension) {
         pixel.addEventListener("mouseover", mouseEvent);
         drawBoard.appendChild(pixel);
     }
-
 }
 
-generateGrid(64);
+let resetBtn = document.querySelector(".reset");
+let resetBoard = function () {
+    let squares = drawBoard.querySelectorAll("div");
+    for (square of squares) {
+        drawBoard.removeChild(square);
+    }
+}
+resetBtn.onclick = resetBoard;
+
+
+let submitBtn = document.querySelector(".submit");
+let dimInput = document.querySelector(".dimension");
+
+
+submitBtn.onclick = () => {
+    resetBoard();
+    let dim = dimInput.value;
+    if (Number.isInteger(Math.sqrt(dim))) {
+        generateGrid(dim);
+    } else {
+        alert("invalid input");
+    }
+}
