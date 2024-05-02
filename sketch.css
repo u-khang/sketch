@@ -1,0 +1,5 @@
+.draw-board {
+    display: grid;
+    grid-template-columns: repeat(10px);
+    grid-template-rows: repeat(10px);
+}
